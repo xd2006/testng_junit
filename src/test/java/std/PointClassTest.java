@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 /**
  * Created by Alex on 28.05.2016.
  */
-public class PointClassTests {
+public class PointClassTest {
 
     @Test
     public void DistanceCheckRounding()
