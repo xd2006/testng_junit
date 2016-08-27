@@ -13,30 +13,24 @@ import java.io.File;
 public class CreateNewFileFunctionTest extends TestBase {
 
     public void Positive_txtFileTest() throws Exception {
-        File f = null;
-        boolean bool = false;
-        f = new File(directoryPathStr + "test.txt");
-        bool = f.createNewFile();
+        File f = new File(directoryPathStr + "test.txt");
+        boolean bool = f.createNewFile();
         Assert.assertTrue(bool);
-
     }
 
 
     public void Positive_xmlFileNumbersTest() throws Exception {
-        File f = null;
-        boolean bool = false;
-        f = new File(directoryPathStr + "123.xml");
-        bool = f.createNewFile();
-        Assert.assertTrue(bool);
 
+        File f = new File(directoryPathStr + "123.xml");
+        boolean bool = f.createNewFile();
+        Assert.assertTrue(bool);
     }
 
 
     public void Positive_NoExtensionFileTest() throws Exception {
-        File f = null;
-        boolean bool = false;
-        f = new File(directoryPathStr + "123testFile");
-        bool = f.createNewFile();
+
+        File f = new File(directoryPathStr + "123testFile");
+        boolean bool = f.createNewFile();
         Assert.assertTrue(bool);
     }
 
