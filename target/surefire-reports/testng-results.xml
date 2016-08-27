@@ -1,25 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" total="5" passed="5">
   <reporter-output>
   </reporter-output>
-  <suite name="std.PointClassTest" duration-ms="37" started-at="2016-08-24T19:37:10Z" finished-at="2016-08-24T19:37:10Z">
+  <suite name="Command line suite" duration-ms="37" started-at="2016-08-27T21:42:51Z" finished-at="2016-08-27T21:42:52Z">
     <groups>
     </groups>
-    <test name="Command line test" duration-ms="37" started-at="2016-08-24T19:37:10Z" finished-at="2016-08-24T19:37:10Z">
-      <class name="std.PointClassTest">
-        <test-method status="PASS" signature="DistanceCheckPrecise()[pri:0, instance:std.PointClassTest@38082d64]" name="DistanceCheckPrecise" duration-ms="10" started-at="2016-08-24T22:37:10Z" finished-at="2016-08-24T22:37:10Z">
+    <test name="Command line test" duration-ms="37" started-at="2016-08-27T21:42:51Z" finished-at="2016-08-27T21:42:52Z">
+      <class name="std.CreateNewFileFunctionTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:std.CreateNewFileFunctionTest@1e67b872]" test-instance-name="" name="setUp" is-config="true" duration-ms="15" started-at="2016-08-28T00:42:51Z" finished-at="2016-08-28T00:42:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DistanceCheckPrecise -->
-        <test-method status="PASS" signature="DistanceCheckRounding()[pri:0, instance:std.PointClassTest@38082d64]" name="DistanceCheckRounding" duration-ms="10" started-at="2016-08-24T22:37:10Z" finished-at="2016-08-24T22:37:10Z">
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="Negative_ComparingSymbolsTest()[pri:0, instance:std.CreateNewFileFunctionTest@1e67b872]" test-instance-name="" name="Negative_ComparingSymbolsTest" duration-ms="5" started-at="2016-08-28T00:42:52Z" finished-at="2016-08-28T00:42:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DistanceCheckRounding -->
-        <test-method status="PASS" signature="DistanceCheckZeroPoint()[pri:0, instance:std.PointClassTest@38082d64]" name="DistanceCheckZeroPoint" duration-ms="0" started-at="2016-08-24T22:37:10Z" finished-at="2016-08-24T22:37:10Z">
+        </test-method> <!-- Negative_ComparingSymbolsTest -->
+        <test-method status="PASS" signature="Negative_NoNameTest()[pri:0, instance:std.CreateNewFileFunctionTest@1e67b872]" test-instance-name="" name="Negative_NoNameTest" duration-ms="0" started-at="2016-08-28T00:42:52Z" finished-at="2016-08-28T00:42:52Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- DistanceCheckZeroPoint -->
-      </class> <!-- std.PointClassTest -->
+        </test-method> <!-- Negative_NoNameTest -->
+        <test-method status="PASS" signature="Positive_NoExtensionFileTest()[pri:0, instance:std.CreateNewFileFunctionTest@1e67b872]" test-instance-name="" name="Positive_NoExtensionFileTest" duration-ms="1" started-at="2016-08-28T00:42:52Z" finished-at="2016-08-28T00:42:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Positive_NoExtensionFileTest -->
+        <test-method status="PASS" signature="Positive_txtFileTest()[pri:0, instance:std.CreateNewFileFunctionTest@1e67b872]" test-instance-name="" name="Positive_txtFileTest" duration-ms="0" started-at="2016-08-28T00:42:52Z" finished-at="2016-08-28T00:42:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Positive_txtFileTest -->
+        <test-method status="PASS" signature="Positive_xmlFileNumbersTest()[pri:0, instance:std.CreateNewFileFunctionTest@1e67b872]" test-instance-name="" name="Positive_xmlFileNumbersTest" duration-ms="1" started-at="2016-08-28T00:42:52Z" finished-at="2016-08-28T00:42:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Positive_xmlFileNumbersTest -->
+        <test-method status="PASS" signature="cleanUp()[pri:0, instance:std.CreateNewFileFunctionTest@1e67b872]" test-instance-name="" name="cleanUp" is-config="true" duration-ms="1" started-at="2016-08-28T00:42:52Z" finished-at="2016-08-28T00:42:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- cleanUp -->
+      </class> <!-- std.CreateNewFileFunctionTest -->
     </test> <!-- Command line test -->
-  </suite> <!-- std.PointClassTest -->
+  </suite> <!-- Command line suite -->
 </testng-results>
