@@ -8,11 +8,11 @@ import java.io.File;
 /**
  * Created by Alex on 28.08.2016.
  */
-@Test(groups = {"negative"}, priority = 2, alwaysRun = true)
+@Test(groups = {"negative"}, priority = 2, alwaysRun = true, dataProviderClass = DataProviders.class)
 public class NegativeCreateNewFileTest extends TestBase  {
 
+    @Test(dataProvider="loadWrongFileNameFromFile")
     public void Negative_ComparingSymbolsTest(String fileName) throws Exception {
-        fileName = "Fi<>le.txt";
         boolean bool = false;
         try {
             File f = new File(directoryPathStr + fileName);

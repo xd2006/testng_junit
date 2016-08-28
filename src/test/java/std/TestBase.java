@@ -12,7 +12,7 @@ import java.nio.file.Path;
  * Created by Alex on 27.08.2016.
  */
 
-public class TestBase extends DataProviders{
+public class TestBase {
 
 
     protected static String directoryPathStr = "";
