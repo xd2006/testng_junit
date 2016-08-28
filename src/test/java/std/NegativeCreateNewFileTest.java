@@ -11,27 +11,32 @@ import java.io.File;
 @Test(groups = {"negative"}, priority = 2, alwaysRun = true)
 public class NegativeCreateNewFileTest extends TestBase  {
     public void Negative_ComparingSymbolsTest() throws Exception {
-        File f = null;
+        String fileName = "Fi<>le.txt";
         boolean bool = false;
         try {
-            f = new File(directoryPathStr + "Fi<>le.txt");
+            File f = new File(directoryPathStr + "Fi<>le.txt");
             bool = f.createNewFile();
-            Assert.assertFalse(bool);
         } catch (Exception e) {
+        }
+        finally{
             Assert.assertFalse(bool);
+            Assert.assertFalse(String.format("File %s is created",fileName),isFileExistsInFolder(directoryPathStr,fileName));
         }
     }
 
 
     public void Negative_NoNameTest() throws Exception {
-        File f = null;
+
         boolean bool = false;
         try {
-            f = new File(directoryPathStr);
+            File f = new File(directoryPathStr);
             bool = f.createNewFile();
-            Assert.assertFalse(bool);
+
         } catch (Exception e) {
+        }
+        finally{
             Assert.assertFalse(bool);
+            Assert.assertFalse("File without name was created",isFileExistsInFolder(directoryPathStr,""));
         }
     }
 

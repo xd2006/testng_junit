@@ -44,4 +44,12 @@ public class TestBase {
             if (myFile.isFile()) myFile.delete();
     }
 
+    protected boolean isFileExistsInFolder(String path, String fileName)
+    {
+        for (File myFile : new File(path).listFiles())
+            if (myFile.isFile() && myFile.getName().equals(fileName))
+                return true;
+                return false;
+    }
+
 }
