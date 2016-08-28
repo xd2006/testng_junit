@@ -8,7 +8,7 @@ import java.io.File;
 /**
  * Created by Alex on 28.08.2016.
  */
-@Test
+@Test(groups = {"negative"}, priority = 2)
 public class NegativeCreateNewFileTest extends TestBase  {
     public void Negative_ComparingSymbolsTest() throws Exception {
         File f = null;

@@ -9,7 +9,7 @@ import java.io.File;
  * Created by Alex on 27.08.2016.
  */
 
-@Test
+@Test(groups = {"positive"}, priority = 1)
 public class PositiveCreateNewFileTest extends TestBase {
 
     public void Positive_txtFileTest() throws Exception {
