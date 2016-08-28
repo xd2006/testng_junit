@@ -14,7 +14,7 @@ public class NegativeCreateNewFileTest extends TestBase  {
         String fileName = "Fi<>le.txt";
         boolean bool = false;
         try {
-            File f = new File(directoryPathStr + "Fi<>le.txt");
+            File f = new File(directoryPathStr + fileName);
             bool = f.createNewFile();
         } catch (Exception e) {
         }
