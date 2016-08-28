@@ -10,7 +10,7 @@ import java.io.File;
  */
 
 @Test
-public class CreateNewFileFunctionTest extends TestBase {
+public class PositiveCreateNewFileTest extends TestBase {
 
     public void Positive_txtFileTest() throws Exception {
         File f = new File(directoryPathStr + "test.txt");
@@ -35,30 +35,7 @@ public class CreateNewFileFunctionTest extends TestBase {
     }
 
 
-    public void Negative_ComparingSymbolsTest() throws Exception {
-        File f = null;
-        boolean bool = false;
-        try {
-            f = new File(directoryPathStr + "Fi<>le.txt");
-            bool = f.createNewFile();
-            Assert.assertFalse(bool);
-        } catch (Exception e) {
-            Assert.assertFalse(bool);
-        }
-    }
 
-
-    public void Negative_NoNameTest() throws Exception {
-        File f = null;
-        boolean bool = false;
-        try {
-            f = new File(directoryPathStr);
-            bool = f.createNewFile();
-            Assert.assertFalse(bool);
-        } catch (Exception e) {
-            Assert.assertFalse(bool);
-        }
-    }
 
 
 }

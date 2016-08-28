@@ -3,8 +3,9 @@
 <suite verbose="0" name="Failed suite [Command line suite]">
   <test name="Command line test" preserve-order="false">
     <classes>
-      <class name="std.CreateNewFileFunctionTest"/>
+      <class name="std.NegativeCreateNewFileTest"/>
       <class name="std.PointClassTest"/>
+      <class name="std.PositiveCreateNewFileTest"/>
       <class name="std.TestBase"/>
     </classes>
   </test> <!-- Command line test -->
