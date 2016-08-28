@@ -10,8 +10,9 @@ import java.io.File;
  */
 @Test(groups = {"negative"}, priority = 2, alwaysRun = true)
 public class NegativeCreateNewFileTest extends TestBase  {
-    public void Negative_ComparingSymbolsTest() throws Exception {
-        String fileName = "Fi<>le.txt";
+
+    public void Negative_ComparingSymbolsTest(String fileName) throws Exception {
+        fileName = "Fi<>le.txt";
         boolean bool = false;
         try {
             File f = new File(directoryPathStr + fileName);
