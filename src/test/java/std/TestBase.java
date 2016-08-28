@@ -1,7 +1,7 @@
 package std;
 
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,10 +15,10 @@ import java.nio.file.Path;
 public class TestBase {
 
 
-    protected String directoryPathStr = "";
-    protected Path direcoryPath;
+    protected static String directoryPathStr = "";
+    protected static Path direcoryPath;
 
-    @BeforeSuite(alwaysRun = true)
+    @BeforeTest(alwaysRun = true)
     public void setUp() {
         String tmp_dir_prefix = "test_";
         try {
@@ -31,7 +31,7 @@ public class TestBase {
         }
     }
 
-    @AfterSuite(alwaysRun = true)
+    @AfterTest(alwaysRun = true)
     public void cleanUp() throws IOException {
 
         deleteAllFilesFolder(direcoryPath.toString());

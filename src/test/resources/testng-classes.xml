@@ -7,10 +7,13 @@
                 <include name="positive"></include>
                 <include name="negative"></include>
             </run>
+            <dependencies>
+                <group name="negative" depends-on="positive"></group>
+                <!--<group name="positive" depends-on="negative"></group>-->
+            </dependencies>
         </groups>
-        <classes>
-            <class name="std.PositiveCreateNewFileTest"></class>
-            <class name="std.NegativeCreateNewFileTest"></class>
-        </classes>
+        <packages>
+            <package name="std" />
+        </packages>
     </test>
 </suite>
