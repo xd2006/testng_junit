@@ -23,7 +23,7 @@ public class NegativeCreateNewFileTest extends TestBase  {
             exc=e;
         }
         finally{
-            Assert.assertTrue(exc!=null && exc.getMessage().equals("The filename, directory name, or volume label syntax is incorrect"));
+            Assert.assertTrue(exc!=null);
             Assert.assertFalse(bool);
             Assert.assertFalse(String.format("File %s is created",fileName),isFileExistsInFolder(directoryPathStr,fileName));
         }
