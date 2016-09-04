@@ -13,7 +13,7 @@ import java.io.File;
 public class PositiveCreateNewFileTest extends TestBase {
 
     @Test(dataProvider = "regularFiles")
-    public void Positive_RegularFileTest(String fileName) throws Exception {
+    public void regularFileTest(String fileName) throws Exception {
         File f = new File(directoryPathStr + fileName);
         boolean bool = f.createNewFile();
         Assert.assertTrue(bool);
@@ -22,7 +22,7 @@ public class PositiveCreateNewFileTest extends TestBase {
 
 
     @Test(dataProvider = "numberFiles")
-    public void Positive_FileNumbersTest(String fileName) throws Exception {
+    public void fileNumbersTest(String fileName) throws Exception {
         File f = new File(directoryPathStr + fileName);
         boolean bool = f.createNewFile();
         Assert.assertTrue(bool);
@@ -30,7 +30,7 @@ public class PositiveCreateNewFileTest extends TestBase {
     }
 
     @Test(dataProvider = "noExFiles")
-    public void Positive_NoExtensionFileTest(String fileName) throws Exception {
+    public void noExtensionFileTest(String fileName) throws Exception {
         File f = new File(directoryPathStr + fileName);
         boolean bool = f.createNewFile();
         Assert.assertTrue(bool);

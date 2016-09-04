@@ -13,7 +13,7 @@ import java.io.IOException;
 public class NegativeCreateNewFileTest extends TestBase  {
 
     @Test(dataProvider="loadWrongFileNameFromFile")
-    public void Negative_ComparingSymbolsTest(String fileName) throws Exception {
+    public void wrongSymbolsTest(String fileName) throws Exception {
         boolean bool = false;
         Exception exc=null;
         try {
@@ -30,7 +30,7 @@ public class NegativeCreateNewFileTest extends TestBase  {
     }
 
 
-    public void Negative_NoNameTest() throws Exception {
+    public void noNameTest() throws Exception {
 
         boolean bool;
 
