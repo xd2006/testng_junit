@@ -3,11 +3,13 @@ package std;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
 import org.junit.Test;
+import org.junit.experimental.categories.Category;
 
 import java.io.File;
 import java.io.IOException;
 
 import static org.hamcrest.CoreMatchers.is;
+import static std.MyCategories.NegativeTests;
 
 /**
  * Created by Alex on 04.09.2016.
@@ -15,6 +17,7 @@ import static org.hamcrest.CoreMatchers.is;
 public class NegativeCreateNewFileTest extends TestBase {
 
     @Test
+    @Category(NegativeTests.class)
     public void wrongSymbolsTest(String fileName) throws Exception {
         boolean bool = false;
         Exception exc = null;
@@ -37,6 +40,7 @@ public class NegativeCreateNewFileTest extends TestBase {
     }
 
     @Test
+    @Category(NegativeTests.class)
     public void noNameTest() throws Exception {
 
         boolean bool;

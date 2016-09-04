@@ -2,6 +2,7 @@ package std;
 
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
+import org.junit.experimental.categories.Categories;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -14,11 +15,13 @@ import java.nio.file.Path;
  */
 
 
-@RunWith(Suite.class)
+@RunWith(Categories.class)
 @Suite.SuiteClasses({
         NegativeCreateNewFileTest.class,
         PositiveCreateNewFileTest.class
 })
+@Categories.ExcludeCategory(MyCategories.BrokenTests.class)
+
 public class MySuite extends TestBase{
 
     @BeforeClass
