@@ -2,8 +2,6 @@ package std;
 
 import org.junit.ClassRule;
 import org.junit.experimental.categories.Categories;
-import org.junit.rules.ExternalResource;
-import org.junit.rules.RuleChain;
 import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -22,20 +20,16 @@ import org.junit.runners.Suite;
 
 public class ClassesSuite extends TestBase {
 
-
-    public static TemporaryFolder workFolder = new TemporaryFolder();
-    public static ExternalResource pathForTest = new ExternalResource() {
+    @ClassRule
+    public static TemporaryFolder workFolder = new TemporaryFolder() {
         @Override
-        protected void before() throws Throwable {
-            directoryPathStr= workFolder.getRoot().toPath().toString() + "\\";
+        public void before() throws Throwable {
+            super.before();
+            directoryPathStr = workFolder.getRoot().toPath().toString() + "\\";
         }
     };
-
-    @ClassRule
-    public static RuleChain rules = RuleChain
-            .outerRule(workFolder)
-            .around(pathForTest);
 }
+
 
 
 
