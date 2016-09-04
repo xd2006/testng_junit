@@ -24,9 +24,17 @@
         <processorPath useClasspath="true" />
         <module name="1" />
       </profile>
+      <profile default="false" name="Annotation profile for junit_study" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="junit_study" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="1" target="1.5" />
+      <module name="junit_study" target="1.6" />
     </bytecodeTargetLevel>
   </component>
 </project>
