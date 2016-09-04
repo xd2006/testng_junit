@@ -25,7 +25,7 @@ public class PositiveCreateNewFileTest extends TestBase {
         File f = new File(directoryPathStr + fileName);
         boolean bool = f.createNewFile();
         Assert.assertThat(bool,is(true));
-        Assert.assertTrue(String.format("File %s wasn't created",fileName), isFileExistsInFolder(directoryPathStr.toString(),fileName));
+        Assert.assertTrue(String.format("File %s wasn't created",fileName), isFileExistsInFolder(directoryPathStr,fileName));
     }
 
 
@@ -36,7 +36,7 @@ public class PositiveCreateNewFileTest extends TestBase {
         File f = new File(directoryPathStr + fileName);
         boolean bool = f.createNewFile();
         Assert.assertThat(bool,is(true));
-        Assert.assertTrue(String.format("File %s wasn't created",fileName),isFileExistsInFolder(directoryPathStr.toString(),fileName));
+        Assert.assertTrue(String.format("File %s wasn't created",fileName),isFileExistsInFolder(directoryPathStr,fileName));
     }
 
     @Test
@@ -46,6 +46,6 @@ public class PositiveCreateNewFileTest extends TestBase {
         File f = new File(directoryPathStr + fileName);
         boolean bool = f.createNewFile();
         Assert.assertThat(bool,is(true));
-        Assert.assertTrue(String.format("File %s wasn't created",fileName),isFileExistsInFolder(directoryPathStr.toString(),fileName));
+        Assert.assertTrue(String.format("File %s wasn't created",fileName),isFileExistsInFolder(directoryPathStr,fileName));
     }
 }

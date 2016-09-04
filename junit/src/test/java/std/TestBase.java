@@ -6,7 +6,6 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -15,8 +14,9 @@ import java.util.Random;
  * Created by Alex on 04.09.2016.
  */
 public class TestBase {
+
     public static String directoryPathStr = "";
-    public static Path direcoryPath;
+
 
 //    @BeforeClass
 //    public static void setUp() {
@@ -38,6 +38,8 @@ public class TestBase {
 //        Files.delete(direcoryPath);
 //
 //    }
+
+
 
     protected static void deleteAllFilesFolder(String path) {
         for (File myFile : new File(path).listFiles())

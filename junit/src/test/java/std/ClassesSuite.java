@@ -1,14 +1,12 @@
 package std;
 
-import org.junit.AfterClass;
-import org.junit.BeforeClass;
+import org.junit.ClassRule;
 import org.junit.experimental.categories.Categories;
+import org.junit.rules.ExternalResource;
+import org.junit.rules.RuleChain;
+import org.junit.rules.TemporaryFolder;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
-
-import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 /**
  * Created by Alex on 04.09.2016.
@@ -22,27 +20,27 @@ import java.nio.file.Path;
 })
 @Categories.ExcludeCategory(MyCategories.BrokenTests.class)
 
-public class ClassesSuite extends TestBase{
+public class ClassesSuite extends TestBase {
 
-    @BeforeClass
-        public static void setUp() {
-            String tmp_dir_prefix = "test_";
-            try {
-                Path tmp = Files.createTempDirectory(tmp_dir_prefix);
-                directoryPathStr = tmp.toString()+"\\";
-                direcoryPath = tmp;
-            } catch (IOException e) {
-                System.err.println(e);
-            }
+
+    public static TemporaryFolder workFolder = new TemporaryFolder();
+    public static ExternalResource pathForTest = new ExternalResource() {
+        @Override
+        protected void before() throws Throwable {
+            directoryPathStr= workFolder.getRoot().toPath().toString() + "\\";
         }
+    };
 
-        @AfterClass
-        public static void cleanUp() throws IOException {
+    @ClassRule
+    public static RuleChain rules = RuleChain
+            .outerRule(workFolder)
+            .around(pathForTest);
+}
 
-            deleteAllFilesFolder(direcoryPath.toString());
-            Files.delete(direcoryPath);
 
-        }
 
-    }
+
+
+
+
 
