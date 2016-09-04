@@ -1,9 +1,12 @@
 package std;
 
+import com.tngtech.java.junit.dataprovider.DataProviderRunner;
+import com.tngtech.java.junit.dataprovider.UseDataProvider;
 import org.assertj.core.api.SoftAssertions;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.experimental.categories.Category;
+import org.junit.runner.RunWith;
 
 import java.io.File;
 import java.io.IOException;
@@ -14,10 +17,12 @@ import static std.MyCategories.NegativeTests;
 /**
  * Created by Alex on 04.09.2016.
  */
+@RunWith(DataProviderRunner.class)
 public class NegativeCreateNewFileTest extends TestBase {
 
     @Test
     @Category(NegativeTests.class)
+    @UseDataProvider("loadWrongFileNameFromFile")
     public void wrongSymbolsTest(String fileName) throws Exception {
         boolean bool = false;
         Exception exc = null;
@@ -27,13 +32,10 @@ public class NegativeCreateNewFileTest extends TestBase {
         } catch (IOException e) {
             exc = e;
         } finally {
-//            Assert.assertThat(exc, notNullValue());
-//            Assert.assertThat(bool,is(false));
-//            Assert.assertFalse(String.format("File %s is created", fileName), isFileExistsInFolder(directoryPathStr, fileName));
             SoftAssertions s = new SoftAssertions();
-            s.assertThat(exc).isNot(null);
+            s.assertThat(exc).isNotNull();
             s.assertThat(bool).isFalse();
-            s.assertThat(isFileExistsInFolder(directoryPathStr, fileName)).isFalse().overridingErrorMessage(String.format("File %s is created", fileName));
+            s.assertThat(isFileExistsInFolder(directoryPathStr, fileName)).withFailMessage(String.format("File %s is created", fileName)).isFalse();
             s.assertAll();
 
         }

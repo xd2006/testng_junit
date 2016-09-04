@@ -22,7 +22,7 @@ import java.nio.file.Path;
 })
 @Categories.ExcludeCategory(MyCategories.BrokenTests.class)
 
-public class MySuite extends TestBase{
+public class ClassesSuite extends TestBase{
 
     @BeforeClass
         public static void setUp() {
