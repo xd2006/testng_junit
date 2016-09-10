@@ -54,13 +54,9 @@ public class TestBase {
         return false;
     }
 
-    private static String getExtension(){
-        String[] extensions = new String[]{".txt",".xml",".doc",".pdf",".xlsx"};
 
-        return extensions[new Random().nextInt(extensions.length-1)];
 
-    }
-
+    //region DataProviders
         @DataProvider
     public static List<Object> regularFiles(){
 
@@ -112,7 +108,14 @@ public class TestBase {
 
         return fileNames.toArray();
     }
+    //endregion
 
+    //region Private Methods
+    private static String getExtension(){
+        String[] extensions = new String[]{".txt",".xml",".doc",".pdf",".xlsx"};
+
+        return extensions[new Random().nextInt(extensions.length-1)];
+    }
 
     private static Object generateRandomFileName(String extension) {
 
@@ -126,6 +129,7 @@ public class TestBase {
         Object fileName = new Random().nextInt()+ extension;
         return fileName;
     }
+    //endregion
 
 
 }
