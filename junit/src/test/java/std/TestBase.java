@@ -71,29 +71,29 @@ public class TestBase {
     }
 
         @DataProvider
-    public static Object[] numberFiles(){
+    public static List<Object> numberFiles(){
 
         int number = 5;
         List<Object> files = new ArrayList<Object>();
         for (int i=0;i<number;i++) {
             files.add(generateRandomOnlyNumbersName(getExtension()));
         }
-        return files.toArray();
+        return files;
     }
 
         @DataProvider
-    public static Object[] noExFiles(){
+    public static List<Object> noExFiles() {
 
-        int number = 5;
-        List<Object> files = new ArrayList<Object>();
-        for (int i=0;i<number;i++) {
-            files.add(generateRandomFileName(""));
+            int number = 5;
+            List<Object> files = new ArrayList<Object>();
+            for (int i = 0; i < number; i++) {
+                files.add(generateRandomFileName(""));
+            }
+            return files;
         }
-        return files.toArray();
-    }
 
         @DataProvider
-    public static  Object[] loadWrongFileNameFromFile() throws IOException {
+    public static  List<Object> loadWrongFileNameFromFile() throws IOException {
         BufferedReader in = new BufferedReader(new InputStreamReader(
                 TestBase.class.getResourceAsStream("/wrongfilenames.data")));
 
@@ -108,7 +108,7 @@ public class TestBase {
         }
         in.close();
 
-        return fileNames.toArray();
+        return fileNames;
     }
     //endregion
 

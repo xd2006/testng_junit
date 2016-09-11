@@ -24,7 +24,8 @@ public class NegativeCreateNewFileTest extends TestBase {
 
     @Test
     @Category(NegativeTests.class)
-    @UseDataProvider("loadWrongFileNameFromFile")
+    @UseDataProvider(value = "dataSourceLoader", location = UniversalDataProviders.class)
+    @DataSource(value = "/wrongfilenames.data", type= DataSource.Type.RESOURCE)
     public void wrongSymbolsTest(String fileName) throws Exception {
         boolean bool = false;
         Exception exc = null;
