@@ -44,8 +44,8 @@ public class NegativeCreateNewFileTest extends TestBase {
     }
 
     @Test
-    @Unstable(4)
     @Category(NegativeTests.class)
+    @Unstable(4)
     public void noNameTest() throws Exception {
         if (attempt == 4) {
             attempt = 1;

@@ -41,7 +41,7 @@ public class TestBase {
 //    }
 
     @Rule
-    public RerunRule freshDriverRule = new RerunRule();
+    public RerunRule testRerunRule = new RerunRule();
 
     protected static void deleteAllFilesFolder(String path) {
         for (File myFile : new File(path).listFiles())

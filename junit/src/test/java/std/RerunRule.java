@@ -30,7 +30,7 @@ public class RerunRule implements TestRule {
 
             if (desc.getAnnotation(Unstable.class) != null) {
                 int count = 1;
-                Throwable exc=null;
+                Throwable exc;
                 do {
                     exc = null;
                     try {
