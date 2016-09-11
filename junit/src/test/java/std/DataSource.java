@@ -14,8 +14,7 @@ public @interface DataSource {
 
     public enum Type {
         RESOURCE,
-        FILE,
-        METHOD
+        FILE
     }
 
     String value();

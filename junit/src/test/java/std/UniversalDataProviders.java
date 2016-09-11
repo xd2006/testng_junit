@@ -25,16 +25,10 @@ public class UniversalDataProviders {
             case FILE:
                 return loadDataFromFile(ds.value());
 
-            case METHOD:
-                return loadDataFromMethod(ds.value());
 
             default:
                 throw new Error("Data source type is not supported: " + ds.type());
         }
-    }
-
-    private static List<Object> loadDataFromMethod(String value) {
-return null;
     }
 
     private static List<Object> loadDataFromResource(String value) throws IOException {
