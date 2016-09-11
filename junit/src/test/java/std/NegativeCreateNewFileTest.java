@@ -20,6 +20,8 @@ import static std.MyCategories.NegativeTests;
 @RunWith(DataProviderRunner.class)
 public class NegativeCreateNewFileTest extends TestBase {
 
+    private static int attempt = 1;
+
     @Test
     @Category(NegativeTests.class)
     @UseDataProvider("loadWrongFileNameFromFile")
@@ -42,14 +44,18 @@ public class NegativeCreateNewFileTest extends TestBase {
     }
 
     @Test
+    @Unstable(4)
     @Category(NegativeTests.class)
     public void noNameTest() throws Exception {
-
+        if (attempt == 4) {
+            attempt = 1;
         boolean bool;
-
         File f = new File(directoryPathStr);
         bool = f.createNewFile();
         Assert.assertThat(bool,is(false));
         Assert.assertFalse("File without name was created", isFileExistsInFolder(directoryPathStr, ""));
+        } else {
+            Assert.fail("Failed on " + (attempt++) + " attempt");
+        }
     }
 }

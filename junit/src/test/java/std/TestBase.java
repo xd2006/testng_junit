@@ -1,6 +1,7 @@
 package std;
 
 import com.tngtech.java.junit.dataprovider.DataProvider;
+import org.junit.Rule;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -39,7 +40,8 @@ public class TestBase {
 //
 //    }
 
-
+    @Rule
+    public RerunRule freshDriverRule = new RerunRule();
 
     protected static void deleteAllFilesFolder(String path) {
         for (File myFile : new File(path).listFiles())
