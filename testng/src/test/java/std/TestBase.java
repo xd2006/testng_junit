@@ -28,14 +28,14 @@ public class TestBase {
         String tmp_dir_prefix = "test_";
         try {
             Path tmp = Files.createTempDirectory(tmp_dir_prefix);
-            directoryPathStr = tmp.toString()+"\\";
+            directoryPathStr = tmp.toString() + "\\";
             direcoryPath = tmp;
             TempDir ignore = m.getAnnotation(TempDir.class);
-            if (ignore!=null){
+            if (ignore != null) {
                 File f = new File(String.valueOf(tmp));
                 //f.setReadable(ignore.read(), false);
 //                f.setWritable(ignore.write(), false);
-                setFilePermissions(tmp, ignore.read(),ignore.write());
+                setFilePermissions(tmp, ignore.read(), ignore.write());
             }
 
 
@@ -45,27 +45,36 @@ public class TestBase {
     }
 
     @AfterMethod(alwaysRun = true)
-    public void cleanUp(Method m) throws IOException {
-        TempDir ignore = m.getAnnotation(TempDir.class);
-        if (ignore!=null){
-            setFilePermissions(direcoryPath, true,true);
-        }
+    public void cleanUp() throws IOException {
+
         deleteAllFilesFolder(direcoryPath.toString());
         Files.delete(direcoryPath);
 
     }
 
-    private void deleteAllFilesFolder(String path) {
+    private void deleteAllFilesFolder(String path) throws IOException {
+
+        restorePermissions(path);
+
         for (File myFile : new File(path).listFiles())
             if (myFile.isFile()) myFile.delete();
     }
 
-    protected boolean isFileExistsInFolder(String path, String fileName)
-    {
+    private void restorePermissions(String path) throws IOException {
+
+        if (new File(path).listFiles() == null)
+            setFilePermissions(new File(path).toPath(), true, true);
+
+    }
+
+    protected boolean isFileExistsInFolder(String path, String fileName) throws IOException {
+
+        restorePermissions(path);
+
         for (File myFile : new File(path).listFiles())
             if (myFile.isFile() && myFile.getName().equals(fileName))
                 return true;
-                return false;
+        return false;
     }
 
     //this method works for Windows
@@ -82,7 +91,7 @@ public class TestBase {
             UserPrincipal user = upls.lookupPrincipalByName(System.getProperty("user.name"));
 
             AclEntry.Builder builderR = AclEntry.newBuilder();
-            builderR.setPermissions( EnumSet.of(
+            builderR.setPermissions(EnumSet.of(
                     AclEntryPermission.READ_DATA,
                     AclEntryPermission.EXECUTE,
                     AclEntryPermission.READ_ACL,
@@ -93,11 +102,11 @@ public class TestBase {
             ));
             builderR.setPrincipal(user);
             if (read)
-            builderR.setType(AclEntryType.ALLOW);
+                builderR.setType(AclEntryType.ALLOW);
             else builderR.setType(AclEntryType.DENY);
 
             AclEntry.Builder builderW = AclEntry.newBuilder();
-            builderW.setPermissions( EnumSet.of(
+            builderW.setPermissions(EnumSet.of(
                     AclEntryPermission.WRITE_ACL,
                     AclEntryPermission.DELETE,
                     AclEntryPermission.ADD_FILE,
@@ -111,8 +120,8 @@ public class TestBase {
                     AclEntryPermission.WRITE_OWNER
             ));
             builderW.setPrincipal(user);
-            if(write)
-            builderW.setType(AclEntryType.ALLOW);
+            if (write)
+                builderW.setType(AclEntryType.ALLOW);
             else builderW.setType(AclEntryType.DENY);
 
             final AclEntry readPermissions = builderR.build();
@@ -128,4 +137,4 @@ public class TestBase {
         }
     }
 
-   }
+}

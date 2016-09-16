@@ -40,7 +40,18 @@ public class PositiveCreateNewFileTest extends TestBase {
 
     @Test
     @TempDir(read = true,write=true)
-    public void canCreateFileInWritableDir() throws IOException {
+    public void canCreateFileInWritableReadableDir() throws IOException {
+        String fileName = "valid.txt";
+        boolean bool;
+        File f = new File(directoryPathStr+fileName);
+        bool = f.createNewFile();
+        Assert.assertTrue(bool);
+        Assert.assertTrue("File wasn't created",isFileExistsInFolder(directoryPathStr,fileName));
+    }
+
+    @Test
+    @TempDir(read = false,write=true)
+    public void canCreateFileInWritableNotReadableDir() throws IOException {
         String fileName = "valid.txt";
         boolean bool;
         File f = new File(directoryPathStr+fileName);
