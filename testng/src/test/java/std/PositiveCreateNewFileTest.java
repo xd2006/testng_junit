@@ -4,6 +4,7 @@ import junit.framework.Assert;
 import org.testng.annotations.Test;
 
 import java.io.File;
+import java.io.IOException;
 
 /**
  * Created by Alex on 27.08.2016.
@@ -35,6 +36,17 @@ public class PositiveCreateNewFileTest extends TestBase {
         boolean bool = f.createNewFile();
         Assert.assertTrue(bool);
         Assert.assertTrue(String.format("File %s wasn't created",fileName),isFileExistsInFolder(directoryPathStr.toString(),fileName));
+    }
+
+    @Test
+    @TempDir(read = true,write=true)
+    public void canCreateFileInWritableDir() throws IOException {
+        String fileName = "valid.txt";
+        boolean bool;
+        File f = new File(directoryPathStr+fileName);
+        bool = f.createNewFile();
+        Assert.assertTrue(bool);
+        Assert.assertTrue("File wasn't created",isFileExistsInFolder(directoryPathStr,fileName));
     }
 
 
