@@ -30,12 +30,12 @@ public class TestBase {
             Path tmp = Files.createTempDirectory(tmp_dir_prefix);
             directoryPathStr = tmp.toString() + "\\";
             direcoryPath = tmp;
-            TempDir ignore = m.getAnnotation(TempDir.class);
-            if (ignore != null) {
-                File f = new File(String.valueOf(tmp));
-                //f.setReadable(ignore.read(), false);
-//                f.setWritable(ignore.write(), false);
-                setFilePermissions(tmp, ignore.read(), ignore.write());
+            TempDir permissions = m.getAnnotation(TempDir.class);
+            if (permissions != null) {
+//                File f = new File(String.valueOf(tmp));
+//                f.setReadable(permissions.read(), false);
+//                f.setWritable(permissions.write(), false);
+                setFilePermissions(tmp, permissions.read(), permissions.write());
             }
 
 
