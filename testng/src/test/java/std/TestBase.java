@@ -38,7 +38,6 @@ public class TestBase {
                 setFilePermissions(tmp, permissions.read(), permissions.write());
             }
 
-
         } catch (IOException e) {
             System.err.println(e);
         }
