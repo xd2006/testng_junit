@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -27,12 +28,14 @@ public class XlsxDataProviders {
             throw new Error("There is no @XlsxDataSource annotation on method " + m);
         } else {
             XlsxDataSource dataSource = m.getAnnotation(XlsxDataSource.class);
-            File excel = new File(dataSource.value());
+
+            URL resource = DataProviders.class.getResource(dataSource.value());
+            File excel = new File(resource.getFile());
+
             FileInputStream fis = new FileInputStream(excel);
             XSSFWorkbook book = new XSSFWorkbook(fis);
 
             XSSFSheet sheet = book.getSheetAt(0);
-
             Iterator<Row> itr = sheet.iterator();
 
             List<Object[]> files = new ArrayList<Object[]>();
