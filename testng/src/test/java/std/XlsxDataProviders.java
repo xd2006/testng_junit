@@ -54,7 +54,10 @@ public class XlsxDataProviders {
                         case Cell.CELL_TYPE_STRING:
                             files.add(new Object[]{cell.getStringCellValue()});
                             break;
-
+                        case Cell.CELL_TYPE_NUMERIC:
+                            String value = String.valueOf(cell.getNumericCellValue());
+                            files.add(new Object[]{value});
+                            break;
                     }
                 }
             }
