@@ -29,7 +29,7 @@ public class XlsxDataProviders {
         } else {
             XlsxDataSource dataSource = m.getAnnotation(XlsxDataSource.class);
 
-            URL resource = DataProviders.class.getResource(dataSource.value());
+            URL resource = XlsxDataProviders.class.getResource(dataSource.value());
             File excel = new File(resource.getFile());
 
             FileInputStream fis = new FileInputStream(excel);
